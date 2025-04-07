@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Services - Caringbah High School Band</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        /* Additional styles specifically for the services dropdown */
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 15px;
+            background: rgba(115, 173, 33, 0.1);
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .service-header:hover {
+            background: rgba(115, 173, 33, 0.2);
+        }
+        
+        .service-header::after {
+            content: '+';
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            color: #73AD21;
+        }
+        
+        .service-header.active::after {
+            content: '-';
+        }
+        
+        .service-content {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.5s ease;
+            padding: 0 15px;
+            margin: 0;
+            background: white;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .service-content.show {
+            height: auto;
+            padding: 20px;
+            margin-bottom: 20px;
+            overflow: visible;
+        }
+        
+        .service-content ul {
+            padding-left: 20px;
+        }
+        
+        .service-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Info panel styles */
+        .info-panel {
+            display: flex;
+            gap: 20px;
+            margin-top: 15px;
+            align-items: center;
+        }
+
+        .info-panel img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .info-text {
+            flex: 1;
+        }
+
+        @media (max-width: 768px) {
+            .info-panel {
+                flex-direction: column;
+            }
+            
+            .info-panel img {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="2.png" alt="Caringbah High School Band Logo" length="1000px" width="200px">
+        </div>
+        <div class="music-symbols">
+            <span>♫</span>
+            <span>♩</span>
+            <span>♪</span>
+            <span>♬</span>
+            <span>♭</span>
+            <span>♮</span>
+            <span>music</span>
+        </div>
+        <h1>Learning Services</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Learning Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="upcomingevents.html">Upcoming Events</a></li>
+                <li><a href="testimonials.html">Testimonials & FAQ</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Our Programs</h2>
+            <article>
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Beginner Band</h3>
+                </div>
+                <div class="service-content">
+                    <p>Perfect for students new to music. Learn the basics of playing an instrument and reading music.</p>
+                    <div class="info-panel">
+                        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Beginner band">
+                        <div class="info-text">
+                            <p><strong>Schedule:</strong> Thursdays, 3-4pm</p>
+                            <p><strong>Instructor:</strong> Mr. Timothy Sampson</p>
+                            <p><strong>Requirements:</strong> No prior experience needed. Instruments provided.</p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Introduction to musical instruments</li>
+                        <li>Basic music theory and notation</li>
+                        <li>Fundamental playing techniques</li>
+                        <li>Group playing experience</li>
+                    </ul>
+                </div>
+            </article>
+            <article>
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Intermediate Band</h3>
+                </div>
+                <div class="service-content">
+                    <p>For students with some experience. Develop your skills and prepare for performances.</p>
+                    <div class="info-panel">
+                        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Intermediate band">
+                        <div class="info-text">
+                            <p><strong>Schedule:</strong> Mondays, 3-4pm</p>
+                            <p><strong>Instructor:</strong> Mr Timothy Sampson</p>
+                            <p><strong>Requirements:</strong> 6+ months experience or instructor approval</p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Intermediate music theory</li>
+                        <li>Technique refinement</li>
+                        <li>Sight-reading practice</li>
+                        <li>Ensemble coordination</li>
+                    </ul>
+                </div>
+            </article>
+            <article>
+                <div class="service-header" onclick="toggleService(this)">
+                    <h3>Advanced Band</h3>
+                </div>
+                <div class="service-content">
+                    <p>For experienced musicians. Focus on advanced techniques and participate in competitions.</p>
+                    <div class="info-panel">
+                        <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Advanced band">
+                        <div class="info-text">
+                            <p><strong>Schedule:</strong> Monday-Friday, Called During School Hours</p>
+                            <p><strong>Instructor:</strong> Mr. Adrian Tuero</p>
+                            <p><strong>Requirements:</strong> 1+ years experience</p>
+                        </div>
+                    </div>
+                    <ul>
+                        <li>Advanced musical interpretation</li>
+                        <li>Competition preparation</li>
+                        <li>One on One</li>
+                        <li>Leadership development</li>
+                    </ul>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Caringbah High School Band</p>
+    </footer>
+
+    <script>
+        function toggleService(element) {
+            element.classList.toggle('active');
+            
+            const content = element.nextElementSibling;
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                content.style.height = '0';
+            } else {
+                document.querySelectorAll('.service-content.show').forEach(openContent => {
+                    openContent.classList.remove('show');
+                    openContent.style.height = '0';
+                    openContent.previousElementSibling.classList.remove('active');
+                });
+                
+                content.classList.add('show');
+                content.style.height = content.scrollHeight + 'px';
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const contents = document.querySelectorAll('.service-content');
+            contents.forEach(content => {
+                content.style.height = '0';
+            });
+        });
+    </script>
+</body>
+</html>

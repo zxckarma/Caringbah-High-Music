@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Caringbah High School Band</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <style>
+        .album-section {
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .album-header {
+            background-color: #f5f5f5;
+            padding: 15px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .album-header:hover {
+            background-color: #e9e9e9;
+        }
+        
+        .album-header::after {
+            content: "+";
+            font-size: 1.5em;
+        }
+        
+        .album-header.active::after {
+            content: "-";
+        }
+        
+        .album-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            background-color: white;
+        }
+        
+        .album-content.show {
+            max-height: 5000px; 
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 15px;
+        }
+        
+        .gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        
+        .gallery img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        @media (max-width: 600px) {
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="2.png" alt="Caringbah High School Band Logo" length="1000px" width="200px">
+          </div>
+        <div class="music-symbols">
+            <span>♫</span>
+            <span>♩</span>
+            <span>♪</span>
+            <span>♬</span>
+            <span>♭</span>
+            <span>♮</span>
+            <span>music</span>
+        </div>
+        <h1>Gallery</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="services.html">Learning Services</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="upcomingevents.html">Upcoming Events</a></li>
+                <li><a href="testimonials.html">Testimonials & FAQ</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>   
+    <main>
+        <section>
+            <h2>Our Memories</h2>
+            
+            <div class="album-section">
+                <div class="album-header" onclick="toggleAlbum(this)">
+                    Music Gala Day
+                </div>
+                <div class="album-content">
+                    <div class="gallery">
+                        <img src="481125382_610092488319882_8525495828389529638_n.jpg" alt="Spring Concert Performance">
+                        <img src="481785283_610092698319861_2782609362043737546_n.jpg" alt="Spring Concert Rehearsal">
+                        <img src="481777258_610092448319886_6106532808353693917_n.jpg" alt="Spring Concert Finale">
+                        <img src="480848563_610092414986556_5925234364415699545_n.jpg" alt="Spring Concert Soloist">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="album-section">
+                <div class="album-header" onclick="toggleAlbum(this)">
+                    Music Camp
+                </div>
+                <div class="album-content">
+                    <div class="gallery">
+                        <img src="music camp 2024.png" alt="Music Camp 2024">
+                        <img src="music camp 2023.png" alt="Music Camp 2023">
+                        <img src="music camp.png" alt="Music Camp 2022">
+                        <img src="music camp 2021.png" alt="Music Camp 2021">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="album-section">
+                <div class="album-header" onclick="toggleAlbum(this)">
+                    Cazbah
+                </div>
+                <div class="album-content">
+                    <div class="gallery">
+                        <img src="newphoto2.jpg" alt="Choir">
+                        <img src="newphoto3.jpg" alt="Guitar Ensemble">
+                        <img src="newphoto4.jpg" alt="Flute Orchestra">
+                        <img src="desd.jpg" alt="Winning Orchestra Performance">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="album-section">
+                <div class="album-header" onclick="toggleAlbum(this)">
+                    Stage Crew and Behind the Scenes
+                </div>
+                <div class="album-content">
+                    <div class="gallery">
+                        <img src="stage crew 1.png" alt="Tech crew team">
+                        <img src="tech crew 1.png" alt="Tech crew working on the sound effects during the Musical Gala Concert">
+                        <img src="tech crew 2.jpeg" alt="Sound check">
+                        <img src="tech crew 3.png" alt="Tech Crew after a concert">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Caringbah High School Band</p>
+    </footer>
+    
+    <script>
+        function toggleAlbum(header) {
+            header.classList.toggle("active");
+            const content = header.nextElementSibling;
+            content.classList.toggle("show");
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            const firstHeader = document.querySelector('.album-header');
+            if (firstHeader) {
+                firstHeader.classList.add("active");
+                firstHeader.nextElementSibling.classList.add("show");
+            }
+        });
+    </script>
+</body>
+</html>
